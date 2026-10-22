@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Slow & Steady is a local-first AI helper that turns your overwhelming to-do list into a calm, tiny next step.">
+<title>Slow & Steady — Your Tiny-Step AI</title>
+<style>
+:root{--bg:#f7f5ef;--paper:#fffdf8;--ink:#25352d;--muted:#718076;--green:#426b52;--mint:#e2eee3;--peach:#f6dfcf;--line:#e6e6da;--yellow:#f2e9bd}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 90% 5%,#e8f0df 0,transparent 28%),var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+.wrap{max-width:1080px;margin:auto;padding:24px 20px 60px}.nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}.brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:-.4px}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:15px;background:var(--green);color:white;font-size:23px}.pill{font-size:12px;font-weight:700;color:var(--green);background:var(--mint);border-radius:99px;padding:8px 12px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:38px;align-items:center;margin-bottom:35px}.eyebrow{font-size:12px;letter-spacing:1.6px;text-transform:uppercase;font-weight:800;color:var(--green)}h1{font-size:clamp(40px,6vw,68px);line-height:1.03;letter-spacing:-3px;margin:14px 0 18px;max-width:620px}h1 span{color:var(--green)}.sub{font-size:17px;color:#647168;max-width:570px}.hero-art{min-height:290px;border-radius:32px;background:linear-gradient(145deg,#dce9d7,#f4e4ce);display:grid;place-items:center;position:relative;overflow:hidden}.sun{position:absolute;width:145px;height:145px;border-radius:50%;background:#f7d98b;top:28px;right:42px}.leaf{position:absolute;width:180px;height:95px;background:#759a76;border-radius:100% 0 100% 0;transform:rotate(-32deg);left:45px;bottom:70px}.leaf.two{width:140px;height:75px;background:#507d60;transform:rotate(25deg);left:135px;bottom:38px}.sloth{position:relative;z-index:2;font-size:110px;filter:drop-shadow(0 8px 4px #8ca68a55);margin-top:20px}.art-label{position:absolute;bottom:18px;right:20px;background:#fffdf0d9;padding:9px 13px;border-radius:12px;font-size:12px;font-weight:700}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:0 12px 35px #283a2b08}.panel-head{display:flex;justify-content:space-between;gap:12px;align-items:start;margin-bottom:16px}h2{font-size:24px;letter-spacing:-.7px;margin:0 0 5px}.hint{color:var(--muted);font-size:13px;margin:0}.mode{font-size:11px;background:var(--yellow);padding:7px 10px;border-radius:99px;font-weight:800;white-space:nowrap}
+textarea{width:100%;min-height:122px;resize:vertical;border:1px solid #dfe4d8;background:#fbfcf7;border-radius:16px;padding:15px;font:inherit;color:var(--ink);outline:none}textarea:focus,input:focus{border-color:var(--green);box-shadow:0 0 0 3px #426b5218}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.btn{border:0;border-radius:13px;padding:12px 17px;font:inherit;font-size:14px;font-weight:800;cursor:pointer;transition:transform .15s,opacity .15s}.btn:hover{transform:translateY(-1px)}.primary{background:var(--green);color:white}.secondary{background:var(--mint);color:var(--green)}.tiny{font-size:12px;color:var(--muted);margin-top:11px}.result{margin-top:22px;display:none}.result.show{display:block}.result-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.result h3{margin:0;font-size:19px}.task-list{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:9px}.task{display:flex;gap:11px;align-items:flex-start;background:#f6f7f0;border:1px solid #e9ecdf;border-radius:14px;padding:13px}.task input{margin-top:5px;accent-color:var(--green);width:16px;height:16px}.task label{flex:1}.task.done label{text-decoration:line-through;color:#879187}.tag{display:inline-block;margin-top:5px;font-size:10px;text-transform:uppercase;letter-spacing:.6px;font-weight:800;color:var(--green)}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:22px}.feature{background:#ffffff91;border:1px solid var(--line);border-radius:20px;padding:19px}.feature .emoji{font-size:24px}.feature h3{margin:9px 0 5px;font-size:16px}.feature p{margin:0;color:var(--muted);font-size:13px}.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:34px}.small-link{color:var(--green);font-weight:700;text-decoration:none}
+.setup{margin-top:22px;background:#eef2e8;border-radius:18px;padding:16px 18px}.setup summary{cursor:pointer;font-weight:800;color:var(--green)}.setup p,.setup li{font-size:13px;color:#5e6d61}.setup code{background:#fff;padding:2px 5px;border-radius:5px}
+@media(max-width:760px){.hero{grid-template-columns:1fr;gap:20px}.hero-art{min-height:220px}.sloth{font-size:90px}.features{grid-template-columns:1fr}.nav{margin-bottom:30px}h1{letter-spacing:-2px}.panel{padding:19px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav"><div class="brand"><div class="logo">🌿</div><span>slow & steady</span></div><span class="pill">LOCAL-FIRST • CALM PRODUCTIVITY</span></nav>
+  <header class="hero">
+    <div><div class="eyebrow">Less overwhelm. One tiny step.</div><h1>Let your to-do list <span>take a deep breath.</span></h1><p class="sub">Drop in the tasks you keep putting off. Slow & Steady turns the pile into a gentle, doable plan—without guilt, hustle culture, or ten more tabs.</p></div>
+    <div class="hero-art" aria-label="Sloth resting among leaves"><div class="sun"></div><div class="leaf"></div><div class="leaf two"></div><div class="sloth">🦥</div><div class="art-label">Slow is a strategy, too.</div></div>
+  </header>
+  <main class="panel">
+    <div class="panel-head"><div><h2>What are you avoiding?</h2><p class="hint">Paste messy thoughts. You don't need to organize them first.</p></div><span class="mode" id="modePill">LOCAL SMART MODE</span></div>
+    <textarea id="tasksInput" placeholder="Example: finish my assignment, reply to my project team, clean downloads folder, prepare for tomorrow's class..."></textarea>
+    <div class="actions"><button class="btn primary" id="planBtn">Make it feel smaller ✨</button><button class="btn secondary" id="exampleBtn">Try an example</button><button class="btn secondary" id="clearBtn">Clear</button></div>
+    <p class="tiny" id="status">Your list stays in this browser unless you choose to send it to your own local Ollama model.</p>
+    <section class="result" id="result" aria-live="polite"><div class="result-top"><div><h3 id="resultTitle">Your gentle plan</h3><p class="hint" id="resultSummary"></p></div><button class="btn secondary" id="copyBtn">Copy plan</button></div><ul class="task-list" id="taskList"></ul></section>
+    <details class="setup"><summary>Want to use a real open-weight AI model?</summary>
+      <p>This app can optionally send your list to <b>Ollama</b> running on your own computer. The model stays on your machine; nothing is sent to a hosted AI provider.</p>
+      <ol><li>Install Ollama from <a class="small-link" href="https://ollama.com/" target="_blank" rel="noreferrer">ollama.com</a>.</li><li>In a terminal, run <code>ollama run qwen2.5:3b</code> and wait for the model to download.</li><li>To let this webpage call Ollama, start Ollama with browser origins allowed. For a local test, set <code>OLLAMA_ORIGINS=*</code> in your environment before launching Ollama, then restart it. Use this only for local development.</li><li>Enable the toggle below and choose <b>Use local AI</b>. If Ollama is unavailable, the app still works in Smart Mode.</li></ol>
+      <label style="display:flex;gap:9px;align-items:center;font-weight:800;font-size:13px"><input id="useAI" type="checkbox" style="accent-color:#426b52"> Use local AI (Ollama at localhost:11434)</label>
+      <p><label for="modelName">Model name</label><br><input id="modelName" value="qwen2.5:3b" style="margin-top:6px;padding:10px;border:1px solid #dfe4d8;border-radius:10px;width:min(100%,260px)"></p>
+    </details>
+  </main>
+  <section class="features">
+    <article class="feature"><div class="emoji">🪴</div><h3>Tiny-step planning</h3><p>Break intimidating tasks into actions small enough to start in five minutes.</p></article>
+    <article class="feature"><div class="emoji">🔒</div><h3>Privacy by default</h3><p>Smart Mode runs in your browser. Optional AI calls your own local model.</p></article>
+    <article class="feature"><div class="emoji">🐢</div><h3>No productivity guilt</h3><p>Pick one next step, check it off, and let “enough for today” be enough.</p></article>
+  </section>
+  <p class="footer">Built for the “Slow and Steady” open-source AI challenge · Small steps count.</p>
+</div>
+<script>
+const input=document.getElementById('tasksInput'), result=document.getElementById('result'), list=document.getElementById('taskList');
+let latestPlan=[];
+document.getElementById('exampleBtn').addEventListener('click',()=>{input.value='Finish my programming assignment\\nReply to my hackathon team\\nOrganize my Downloads folder\\nRevise physics for 20 minutes\\nPrepare my bag for tomorrow';input.focus()});
+document.getElementById('clearBtn').addEventListener('click',()=>{input.value='';result.classList.remove('show');document.getElementById('status').textContent='Cleared. Your list stays in this browser.'});
+function splitTasks(raw){return raw.split(/[\\n,;]+/).map(x=>x.trim()).filter(Boolean).slice(0,20)}
+function smartPlan(raw){
+ const tasks=splitTasks(raw);
+ if(!tasks.length) return [];
+ return tasks.map((task,i)=>{
+  let clean=task.replace(/^[-*•\\d.)\\s]+/,'').trim();
+  const lower=clean.toLowerCase();
+  let first;
+  if(/assignment|homework|project|report|essay|write|finish|complete/.test(lower)) first='Open the file and work on just the first section for 5 minutes.';
+  else if(/reply|email|message|text|call/.test(lower)) first='Open the conversation and write one rough sentence.';
+  else if(/clean|organ|folder|tidy|room|desk/.test(lower)) first='Set a 5-minute timer and handle only the easiest visible item.';
+  else if(/study|revise|exam|learn|read|prepare/.test(lower)) first='Choose one small topic and focus on it for 5 minutes.';
+  else if(/buy|shop|grocery|food/.test(lower)) first='Write down the first 3 things you need.';
+  else first='Spend 5 minutes on the easiest first action—stop when the timer ends if you want.';
+  return {title:clean,step:first,priority:i===0?'START HERE':'WHEN READY'};
+ });
+}
+function renderPlan(items,summary){
+ latestPlan=items;list.innerHTML='';
+ items.forEach((item,i)=>{const li=document.createElement('li');li.className='task';const cb=document.createElement('input');cb.type='checkbox';cb.id='task-'+i;cb.addEventListener('change',()=>li.classList.toggle('done',cb.checked));const label=document.createElement('label');label.htmlFor=cb.id;const title=document.createElement('strong');title.textContent=item.title;const step=document.createElement('div');step.textContent=item.step;const tag=document.createElement('span');tag.className='tag';tag.textContent=item.priority||'TINY STEP';label.append(title,document.createElement('br'),step,document.createElement('br'),tag);li.append(cb,label);list.append(li)});
+ document.getElementById('resultSummary').textContent=summary||`${items.length} task${items.length===1?'':'s'} made smaller. You only need to start with the first one.`;
+ document.getElementById('resultTitle').textContent=items.length?'Your gentle plan':'Add a task to get started';result.classList.add('show');
+}
+async function makePlan(){
+ const raw=input.value.trim();if(!raw){document.getElementById('status').textContent='Add at least one task first. Even a messy sentence is fine.';input.focus();return}
+ const status=document.getElementById('status');const useAI=document.getElementById('useAI').checked;
+ if(useAI){
+  status.textContent='Asking your local Ollama model…';document.getElementById('modePill').textContent='LOCAL OPEN-WEIGHT AI';
+  try{
+   const model=document.getElementById('modelName').value.trim()||'qwen2.5:3b';
+   const response=await fetch('http://localhost:11434/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model,stream:false,format:'json',messages:[{role:'system',content:'You are a gentle productivity helper. Turn tasks into kind, tiny steps. Return only JSON with keys summary (string) and tasks (array of objects with title, step, priority). Keep every step doable in 5 minutes. Do not shame the user. Preserve the user task meaning.'},{role:'user',content:raw}]})});
+   if(!response.ok) throw new Error('Ollama returned '+response.status);
+   const data=await response.json();let parsed=JSON.parse(data.message.content);if(!Array.isArray(parsed.tasks)||!parsed.tasks.length)throw new Error('Unexpected model response');
+   renderPlan(parsed.tasks.slice(0,20),parsed.summary||'Made with your local open-weight model.');status.textContent='Done — processed by your local model. Your task list was not sent to a hosted AI service.';return;
+  }catch(err){status.textContent='Could not connect to Ollama ('+err.message+'). Showing Smart Mode instead. Check that Ollama is running and browser origins are allowed.'}
+ }else{document.getElementById('modePill').textContent='LOCAL SMART MODE';status.textContent='Done — Smart Mode ran in your browser. No server or AI API was used.'}
+ renderPlan(smartPlan(raw));
+}
+document.getElementById('planBtn').addEventListener('click',makePlan);
+document.getElementById('copyBtn').addEventListener('click',async()=>{const text=latestPlan.map((x,i)=>`${i+1}. ${x.title}\\n   Tiny step: ${x.step}`).join('\\n');try{await navigator.clipboard.writeText(text);document.getElementById('status').textContent='Plan copied to clipboard.'}catch{document.getElementById('status').textContent=text}});
+</script>
+</body>
+</html>
